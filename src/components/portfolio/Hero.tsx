@@ -65,7 +65,7 @@ export const Hero = () => {
             <MapPin className="h-4 w-4 text-primary" />
             <span className="text-sm text-muted-foreground">{personal.location}</span>
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm text-muted-foreground">Available for opportunities</span>
+            <span className="text-sm text-muted-foreground">Open to meaningful conversations</span>
           </motion.div>
 
           {/* Name with letter animation */}
