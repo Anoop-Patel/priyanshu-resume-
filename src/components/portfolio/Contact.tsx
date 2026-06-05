@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Phone, MapPin, Github, Linkedin, Download, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Download, ExternalLink, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portfolioData } from "@/data/portfolio";
 
@@ -21,6 +21,9 @@ export const Contact = () => {
     { icon: Linkedin, label: "LinkedIn", href: personal.linkedin },
   ];
 
+  const whatsappMessage = encodeURIComponent("Hi Priyanshu, I saw your portfolio and would like to connect with you.");
+  const whatsappUrl = `https://wa.me/${personal.whatsapp}?text=${whatsappMessage}`;
+
   return (
     <section id="contact" className="py-20 md:py-32" ref={ref}>
       <div className="section-container">
@@ -30,12 +33,12 @@ export const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">// LET'S CONNECT</span>
+          <span className="text-primary font-mono text-sm mb-4 block">// LET&apos;S CONNECT</span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Get In Touch
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            I'm currently open to new opportunities. Whether you have a question, a project idea, 
+            I&apos;m currently open to new opportunities. Whether you have a question, a project idea,
             or just want to connect – feel free to reach out!
           </p>
         </motion.div>
@@ -81,6 +84,32 @@ export const Contact = () => {
             ))}
           </motion.div>
 
+          {/* WhatsApp CTA Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="p-8 rounded-2xl bg-gradient-to-br from-green-500/10 to-green-500/5 border border-green-500/20 text-center mb-10"
+          >
+            <div className="w-14 h-14 mx-auto rounded-full bg-green-500/15 flex items-center justify-center mb-4">
+              <MessageCircle className="h-7 w-7 text-green-500" />
+            </div>
+            <h3 className="text-xl font-semibold mb-2">Prefer WhatsApp?</h3>
+            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+              Message me directly on WhatsApp for quick responses. I typically reply within a few hours.
+            </p>
+            <Button
+              size="lg"
+              className="bg-green-600 text-white hover:bg-green-700 shadow-lg shadow-green-500/20"
+              asChild
+            >
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Chat on WhatsApp
+              </a>
+            </Button>
+          </motion.div>
+
           {/* CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -90,9 +119,9 @@ export const Contact = () => {
           >
             <h3 className="text-xl font-semibold mb-4">Ready to work together?</h3>
             <p className="text-muted-foreground mb-6">
-              Let's discuss how I can help build your next backend system
+              Let&apos;s discuss how I can help build your next backend system
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
                 size="lg"

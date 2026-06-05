@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, MapPin, MessageCircle, Terminal, Code, Braces } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, MapPin, Terminal, Code, Braces } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portfolioData } from "@/data/portfolio";
 import { useRef, useEffect } from "react";

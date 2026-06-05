@@ -7,6 +7,7 @@ export const portfolioData = {
     location: "Noida, India",
     email: "priyanshukatiyar111@gmail.com",
     phone: "+91 6387139727",
+    whatsapp: "+916387139727",
     linkedin: "https://linkedin.com/in/priyanshukatiyar",
     github: "https://github.com/priyanshukatiyar14",
     resumeUrl: "/resume.pdf",
