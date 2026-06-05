@@ -8,7 +8,7 @@ export const portfolioData = {
     email: "priyanshukatiyar111@gmail.com",
     phone: "+91 6387139727",
     linkedin: "https://linkedin.com/in/priyanshukatiyar",
-    github: "https://github.com/priyanshukatiyar",
+    github: "https://github.com/priyanshukatiyar14",
     resumeUrl: "/resume.pdf",
   },
 
