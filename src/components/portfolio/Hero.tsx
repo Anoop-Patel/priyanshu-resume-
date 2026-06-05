@@ -1,8 +1,7 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, MapPin, Terminal, Code, Braces } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { portfolioData } from "@/data/portfolio";
-import { Avatar3D } from "./Avatar3D";
 import { useRef, useEffect } from "react";
 
 export const Hero = () => {
@@ -169,7 +168,7 @@ export const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right: 3D Avatar with tilt parallax */}
+          {/* Right: 3D Code Visual with tilt parallax */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -179,13 +178,83 @@ export const Hero = () => {
               rotateY: tiltY,
               transformStyle: "preserve-3d",
             }}
-            className="order-1 lg:order-2 h-[360px] sm:h-[440px] lg:h-[560px] w-full relative"
+            className="order-1 lg:order-2 h-[360px] sm:h-[440px] lg:h-[560px] w-full relative flex items-center justify-center"
           >
-            {/* Glow behind avatar */}
+            {/* Glow behind visual */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-3/4 h-3/4 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" />
             </div>
-            <Avatar3D />
+
+            {/* Floating code elements */}
+            <motion.div
+              animate={{ y: [0, -12, 0], rotate: [0, 3, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-2 right-8 lg:right-12 p-3 rounded-xl bg-card/80 border border-border backdrop-blur-sm shadow-lg"
+              style={{ transform: "translateZ(60px)" }}
+            >
+              <Code className="h-6 w-6 text-primary" />
+            </motion.div>
+            <motion.div
+              animate={{ y: [0, 10, 0], rotate: [0, -4, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-8 -left-4 lg:left-0 p-3 rounded-xl bg-card/80 border border-border backdrop-blur-sm shadow-lg"
+              style={{ transform: "translateZ(40px)" }}
+            >
+              <Braces className="h-6 w-6 text-primary" />
+            </motion.div>
+            <motion.div
+              animate={{ y: [0, -8, 0], x: [0, 6, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              className="absolute top-1/3 -right-4 lg:right-4 p-2.5 rounded-lg bg-primary/10 border border-primary/20"
+              style={{ transform: "translateZ(80px)" }}
+            >
+              <Terminal className="h-5 w-5 text-primary" />
+            </motion.div>
+
+            {/* Main code window */}
+            <div
+              className="relative w-[90%] max-w-md rounded-2xl overflow-hidden border border-border bg-card/90 backdrop-blur-sm shadow-2xl"
+              style={{ transform: "translateZ(30px)" }}
+            >
+              {/* Window header */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/50">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-amber-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+                <span className="ml-2 text-xs text-muted-foreground font-mono">developer.py</span>
+              </div>
+              {/* Code content */}
+              <div className="p-5 font-mono text-sm leading-relaxed">
+                <div className="flex">
+                  <span className="text-muted-foreground select-none w-6 text-right mr-4">1</span>
+                  <span><span className="text-purple-500">class</span> <span className="text-yellow-500">Developer</span>:</span>
+                </div>
+                <div className="flex">
+                  <span className="text-muted-foreground select-none w-6 text-right mr-4">2</span>
+                  <span className="pl-4"><span className="text-purple-500">def</span> <span className="text-blue-500">__init__</span>(<span className="text-orange-500">self</span>):</span>
+                </div>
+                <div className="flex">
+                  <span className="text-muted-foreground select-none w-6 text-right mr-4">3</span>
+                  <span className="pl-8"><span className="text-orange-500">self</span>.name = <span className="text-green-500">&quot;Priyanshu&quot;</span></span>
+                </div>
+                <div className="flex">
+                  <span className="text-muted-foreground select-none w-6 text-right mr-4">4</span>
+                  <span className="pl-8"><span className="text-orange-500">self</span>.stack = [<span className="text-green-500">&quot;Python&quot;</span>, <span className="text-green-500">&quot;AWS&quot;</span>]</span>
+                </div>
+                <div className="flex">
+                  <span className="text-muted-foreground select-none w-6 text-right mr-4">5</span>
+                  <span className="pl-8"><span className="text-orange-500">self</span>.passion = <span className="text-green-500">&quot;Backend&quot;</span></span>
+                </div>
+                <div className="flex">
+                  <span className="text-muted-foreground select-none w-6 text-right mr-4">6</span>
+                  <span className="pl-4"><span className="text-purple-500">def</span> <span className="text-blue-500">build</span>(<span className="text-orange-500">self</span>, idea):</span>
+                </div>
+                <div className="flex">
+                  <span className="text-muted-foreground select-none w-6 text-right mr-4">7</span>
+                  <span className="pl-8"><span className="text-purple-500">return</span> <span className="text-green-500">&quot;Production Ready&quot;</span></span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </motion.div>
